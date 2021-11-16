@@ -24,6 +24,10 @@ import Drawholder from './Components/Drawholder';
 import TopAppBar from './Components/TopAppBar';
 
 
+//MY FILES
+import CheckInPage from "../Page/Check-In/index"
+
+
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -99,8 +103,8 @@ export default function Layout()
 
 
 
-            <Main open={open}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam minus tempore inventore voluptatum repellendus! Veniam, laborum ipsum nemo, aut voluptatibus explicabo quia facilis inventore repellat temporibus saepe similique reiciendis. Ipsum laborum laboriosam rerum facere dicta deleniti laudantium quia dolore nostrum delectus. Quia, adipisci similique non nam accusantium impedit distinctio aliquid? Molestiae vel minima ad repellat, facilis, ullam autem doloremque qui tenetur iste suscipit nisi debitis aliquid voluptatem mollitia voluptates neque cupiditate optio. Perferendis, debitis reiciendis. Facilis dolore adipisci ratione aliquam provident est eum. Adipisci illum fugit nisi hic iure odit, rerum placeat repudiandae vitae tempora quod quo eligendi deserunt.
+            <Main open={open} style={{ backgroundColor: '#F9FBFA' }}>
+                <CheckInPage />
             </Main>
 
         </Box>
