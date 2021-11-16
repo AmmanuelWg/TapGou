@@ -29,6 +29,7 @@ import TopAppBar from './Components/TopAppBar';
 import CheckInPage from "../Page/Check-In/index"
 import SearchPage from "../Page/Search/index"
 import ChartPage from "../Page/Chart/Index"
+import ShiftLogPage from "../Page/ShiftLog/index"
 
 
 const drawerWidth = 240;
@@ -112,8 +113,9 @@ export default function Layout()
 
 
                 {/* <CheckInPage /> */}
-                <SearchPage />
+                {/* <SearchPage /> */}
                 {/* <ChartPage /> */}
+                <ShiftLogPage />
             </Main>
 
         </Box>
