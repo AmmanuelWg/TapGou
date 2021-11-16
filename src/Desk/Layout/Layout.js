@@ -24,8 +24,11 @@ import Drawholder from './Components/Drawholder';
 import TopAppBar from './Components/TopAppBar';
 
 
+
 //MY FILES
 import CheckInPage from "../Page/Check-In/index"
+import SearchPage from "../Page/Search/index"
+import ChartPage from "../Page/Chart/Index"
 
 
 const drawerWidth = 240;
@@ -104,7 +107,13 @@ export default function Layout()
 
 
             <Main open={open} style={{ backgroundColor: '#F9FBFA' }}>
-                <CheckInPage />
+
+                {/* PAGES SOON TO BE INSIDE ROUTERS */}
+
+
+                {/* <CheckInPage /> */}
+                <SearchPage />
+                {/* <ChartPage /> */}
             </Main>
 
         </Box>
