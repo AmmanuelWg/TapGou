@@ -32,6 +32,9 @@ import ChartPage from "../Page/Chart/Index"
 import ShiftLogPage from "../Page/ShiftLog/index"
 
 
+
+import { Outlet } from 'react-router';
+
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -79,7 +82,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
-export default function Layout()
+export default function Layout({ children })
 {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -112,10 +115,7 @@ export default function Layout()
                 {/* PAGES SOON TO BE INSIDE ROUTERS */}
 
 
-                {/* <CheckInPage /> */}
-                {/* <SearchPage /> */}
-                {/* <ChartPage /> */}
-                <ShiftLogPage />
+                <Outlet />
             </Main>
 
         </Box>

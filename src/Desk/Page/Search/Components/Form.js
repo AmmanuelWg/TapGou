@@ -28,13 +28,6 @@ export default function Form()
 
     return (
         <ThemeProvider theme={theme}>
-
-
-
-
-
-
-
             <Box component="form" noValidate style={{ padding: '0rem 5rem', width: '100%', display: 'flex' }}>
 
                 <Container >
@@ -54,8 +47,6 @@ export default function Form()
                         Delete
                     </Button>
                 </Box>
-
-
 
             </Box >
         </ThemeProvider >

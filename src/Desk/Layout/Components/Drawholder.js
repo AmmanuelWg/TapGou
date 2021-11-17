@@ -23,10 +23,18 @@ import QRcode from "../../Data/Layout/QRcode"
 ///The array for the side bar 
 import { Data } from "../../Data/Layout/Data"
 
+import { useNavigate } from "react-router-dom"
+
 
 
 function Drawholder({ drawerWidth, handleDrawerClose, theme, open, DrawerHeader })
 {
+
+    /////clicked link
+
+    const nav = useNavigate()
+
+
     return (
         <Drawer
             sx={{
@@ -68,11 +76,11 @@ function Drawholder({ drawerWidth, handleDrawerClose, theme, open, DrawerHeader 
                     Dashboard
                 </Typography>
                 {Data.map((text, index) => (
-                    <ListItem button key={text} style={{ margin: '1rem 0rem' }}>
+                    <ListItem button key={text} style={{ margin: '1rem 0rem' }} onClick={() => { nav(text.link) }} >
                         <ListItemIcon>
                             {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                         </ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemText primary={text.name} />
                     </ListItem>
                 ))}
             </List>
