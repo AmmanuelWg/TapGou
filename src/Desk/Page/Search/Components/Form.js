@@ -18,6 +18,9 @@ import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 
 
+import FilterListIcon from '@mui/icons-material/FilterList';
+
+
 
 
 const theme = createTheme();
@@ -43,8 +46,8 @@ export default function Form()
                 </Container>
 
                 <Box sx={{ mt: 4 }}>
-                    <Button variant="outlined" startIcon={<DeleteIcon />} sx={{ height: '100%' }}>
-                        Delete
+                    <Button variant="outlined" startIcon={<FilterListIcon />} sx={{ height: '100%' }}>
+                        Filter
                     </Button>
                 </Box>
 

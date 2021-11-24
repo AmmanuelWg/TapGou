@@ -1,29 +1,48 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
+import
+{
+    Drawer,
+    List,
+    Typography,
+    ListItem,
+    ListItemText,
+    Button,
+    Collapse,
+
+} from '@mui/material';
+
+
+///Icons
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import Contact from './Contact';
 
-import QRcode from "../../Data/Layout/QRcode"
+import ListItemButton from '@mui/material/ListItemButton';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+
+// import SearchIcon from '@mui/icons-material/Search';
+// import CreateIcon from '@mui/icons-material/Create';
+// import EqualizerIcon from '@mui/icons-material/Equalizer';
+// import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+
+
+///PACKAGES
+import ReactToPrint from 'react-to-print';
+import QRCode from 'qrcode-react'
+
 ///The array for the side bar 
 import { Data } from "../../Data/Layout/Data"
-
 import { useNavigate } from "react-router-dom"
+
+
+//MY FILE
+import PhoneNumber from './PhoneNumber';
+import ContactForm from './ContactForm';
+import PrintAbleContent from './PrintAbleContent';
+
 
 
 
@@ -34,6 +53,31 @@ function Drawholder({ drawerWidth, handleDrawerClose, theme, open, DrawerHeader 
 
     const nav = useNavigate()
 
+
+
+    ///COLLAPSES
+
+    const [phoneDrawOpen, setOpen] = useState(false);
+    const handleClick = () =>
+    {
+        setOpen(!phoneDrawOpen);
+    };
+
+
+    const [QRCODEOpen, setQROpen] = useState(false);
+
+    const handleQRClick = () =>
+    {
+        setQROpen(!QRCODEOpen);
+    };
+
+
+
+
+
+
+
+    const componentRef = useRef();
 
     return (
         <Drawer
@@ -55,21 +99,12 @@ function Drawholder({ drawerWidth, handleDrawerClose, theme, open, DrawerHeader 
                     {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                 </IconButton>
             </DrawerHeader>
-            {/* 
-            <List style={{ padding: '0rem 1rem' }}>
-                <Typography >
-                    Dashboard
-                </Typography>
 
-                {['Check In', 'Search', 'Shift Log', 'Gmail', "analysis", "Package"].map((text, index) => (
-                    <ListItem button key={text} style={{ margin: '1rem 0rem' }}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List> */}
+
+
+
+
+            {/* DASHBOARD */}
 
             <List style={{ padding: '0rem 1rem' }}>
                 <Typography>
@@ -78,33 +113,88 @@ function Drawholder({ drawerWidth, handleDrawerClose, theme, open, DrawerHeader 
                 {Data.map((text, index) => (
                     <ListItem button key={text} style={{ margin: '1rem 0rem' }} onClick={() => { nav(text.link) }} >
                         <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                            {text.icons}
                         </ListItemIcon>
                         <ListItemText primary={text.name} />
                     </ListItem>
                 ))}
             </List>
 
+
+
+            {/* INFO SECTIONS  */}
+
             <List style={{ padding: '0rem 1rem' }}>
                 <Typography >
-                    Contact
+                    Info
                 </Typography>
 
-                {['Check In', 'Search'].map((text, index) => (
-                    <ListItem button key={text} style={{ margin: '1rem 0rem' }}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+
+                {/* PHONE NUMBER FORM AND OUT PUT */}
+
+
+                <ListItemButton onClick={handleClick}>
+
+                    <ListItemText primary="Phone Number" />
+                    {phoneDrawOpen ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+
+                <Collapse in={phoneDrawOpen} timeout="auto" unmountOnExit>
+
+                    {/* COLLAPSING FORMS */}
+                    <ContactForm />
+
+                    <List component="div" disablePadding>
+                        <PhoneNumber />
+                        <PhoneNumber />
+
+                    </List>
+                </Collapse>
             </List>
 
-            <List style={{ padding: '0rem 1rem' }}>
-                <QRcode />
+
+            {/* QR CODE */}
+
+            <List style={{ padding: '0rem 1rem', margin: '1rem 0rem' }}>
+
+
+                <ListItemButton onClick={handleQRClick}>
+
+                    <ListItemText primary="QR code" />
+                    {QRCODEOpen ? <ExpandLess /> : <ExpandMore />}
+                </ListItemButton>
+
+                {/* QR CODE THAT CLOSES AND OPNES  */}
+                <Collapse in={QRCODEOpen} timeout="auto" unmountOnExit>
+
+                    <div ref={componentRef}>
+                        <PrintAbleContent />
+                    </div>
+
+                    <ReactToPrint
+                        trigger={() => <Button fullWidth variant="contained" sx={{ mt: 1 }}>Print</Button>}
+                        content={() => componentRef.current}
+                    />
+
+                </Collapse>
+
             </List>
+
         </Drawer>
     )
 }
 
 export default Drawholder
+
+
+
+
+
+
+
+
+
+
+
+
+

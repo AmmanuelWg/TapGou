@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactApexChart from "react-apexcharts"
+import { Box } from "@mui/material"
 
 function Charts()
 {
@@ -12,13 +13,16 @@ function Charts()
     }, {
         name: 'series2',
         data: [11, 32, 45, 32, 34, 52, 41]
-    }];
+    },
+
+
+    ];
 
 
 
     const options = {
         chart: {
-            height: 350,
+            height: 80,
             type: 'area'
         },
         dataLabels: {
@@ -44,9 +48,9 @@ function Charts()
 
     return (
 
-        <div width="100%">
-            <ReactApexChart options={options} series={series} type="area" height={450} maxWidth={1500} />
-        </div>
+        <Box width="100%">
+            <ReactApexChart options={options} series={series} type="area" width="100%" minWidth="40%" maxWidth="90%" height="450" />
+        </Box>
 
     )
 }

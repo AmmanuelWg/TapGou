@@ -19,7 +19,7 @@ export default function Calander()
                 flexDirection: 'column',
                 alignItems: 'center',
                 '& > *': {
-                    my: 15,
+                    my: 1,
                 },
             }}
         >

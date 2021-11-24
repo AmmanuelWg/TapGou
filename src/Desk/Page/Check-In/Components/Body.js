@@ -10,6 +10,8 @@ import TableRow from '@mui/material/TableRow';
 import { Box } from '@mui/material';
 
 
+//MY FILES
+import Person from './Person';
 
 function createData(name, code, population, size)
 {
@@ -49,7 +51,7 @@ const columns = [
 
 
 const rows = [
-    createData('India', 'IN', 1324171354, 3287263),
+    createData('Ammanuel', '240-333-4433', '10:00am', 1324171354, 3287263),
     createData('China', 'CN', 1403500365, 9596961),
     createData('Italy', 'IT', 60483973, 301340),
     createData('United States', 'US', 327167434, 9833520),
@@ -71,6 +73,43 @@ const rows = [
     createData('Brazil', 'BR', 210147125, 8515767)
 ];
 
+
+
+// const rows = [
+//     {
+//         name: 'Ammanuel',
+//         PhoneNumber: '240-330-3344',
+//         Location: '12002',
+//         TimeIn: '10:12am',
+//         TimeOut: '1:00pm',
+//         Company: '-'
+//     },
+//     {
+//         name: 'Emmay',
+//         PhoneNumber: '240-330-3344',
+//         Location: '12002',
+//         TimeIn: '10:12am',
+//         TimeOut: '1:00pm',
+//         Company: '-'
+//     },
+//     {
+//         name: 'Luke',
+//         PhoneNumber: '240-330-3344',
+//         Location: '12002',
+//         TimeIn: '10:12am',
+//         TimeOut: '1:00pm',
+//         Company: '-'
+//     },
+//     {
+//         name: 'Mark',
+//         PhoneNumber: '240-330-3344',
+//         Location: '12002',
+//         TimeIn: '10:12am',
+//         TimeOut: '1:00pm',
+//         Company: 'Otis'
+//     },
+// ]
+
 export default function Body()
 {
     const [page, setPage] = React.useState(0);
@@ -87,6 +126,20 @@ export default function Body()
         setPage(0);
     };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
 
         <TableBody>
@@ -99,10 +152,13 @@ export default function Body()
                         {
                             const value = row[column.id];
                             return (
-                                <TableCell key={column.id} align={column.align}>
-                                    {column.format && typeof value === 'number'
-                                        ? column.format(value)
-                                        : value}
+                                <TableCell
+                                    key={column.id}
+                                    align={column.align}>
+
+                                    {column.format && typeof value === 'number' ? column.format(value) : value}
+
+
                                 </TableCell>
                             );
                         })}
@@ -110,6 +166,8 @@ export default function Body()
                 );
             })}
         </TableBody>
+
+
 
 
 

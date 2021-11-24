@@ -12,7 +12,7 @@ function index()
     return (
 
         <Box sx={{ height: '80vh', mt: 10, overflow: 'hidden' }}>
-            <Paper style={{ height: '100%' }}>
+            <Paper style={{ height: '100%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
                 <Form />
                 <Output />
             </Paper>
