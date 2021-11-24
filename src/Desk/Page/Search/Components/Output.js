@@ -1,4 +1,5 @@
 
+import faker from 'faker';
 import React from 'react';
 import { makeStyles } from '@mui/styles';
 import
@@ -33,8 +34,8 @@ const useStyles = makeStyles((theme) => ({
 
     },
     avatar: {
-        marginRight: '6rem'
 
+        //When the size goes down the avatar should also go dowm
     },
     name: {
         fontWeight: 'bold',
@@ -53,13 +54,36 @@ const useStyles = makeStyles((theme) => ({
 
 
 
+
+
+
+
+
+
+
+let USERS = [], STATUSES = ['Active', 'Pending', 'Blocked'];
+for (let i = 0; i < 14; i++) {
+    USERS[i] = {
+        name: faker.name.findName(),
+        email: faker.internet.email(),
+        phone: faker.phone.phoneNumber(),
+        jobTitle: faker.name.jobTitle(),
+        company: faker.company.companyName(),
+        joinDate: faker.date.past().toLocaleDateString('en-US'),
+        status: STATUSES[Math.floor(Math.random() * STATUSES.length)]
+    }
+}
+
+
+
 const Vistor = [
     {
         name: 'Ammanuel',
         phone: '234-334-3322',
         Location: 'Roof top',
         TimeIn: '10:00am',
-        TimeOut: '1:00pm'
+        TimeOut: '1:00pm',
+        Date: '4/20/22'
 
     },
     {
@@ -67,7 +91,8 @@ const Vistor = [
         phone: '234-334-3322',
         Location: '8933',
         TimeIn: '10:00am',
-        TimeOut: '1:00pm'
+        TimeOut: '1:00pm',
+        Date: '4/20/22'
 
     },
     {
@@ -75,7 +100,8 @@ const Vistor = [
         phone: '234-334-3322',
         Location: '9000',
         TimeIn: '10:00am',
-        TimeOut: '1:00pm'
+        TimeOut: '1:00pm',
+        Date: '4/20/22'
 
     },
     {
@@ -83,47 +109,8 @@ const Vistor = [
         phone: '234-334-3322',
         Location: '8989',
         TimeIn: '10:00am',
-        TimeOut: '1:00pm'
-
-    },
-    {
-        name: 'Ammanuel',
-        phone: '234-334-3322',
-        Location: '8989',
-        TimeIn: '10:00am',
-        TimeOut: '1:00pm'
-
-    },
-    {
-        name: 'Ammanuel',
-        phone: '234-334-3322',
-        Location: '8989',
-        TimeIn: '10:00am',
-        TimeOut: '1:00pm'
-
-    },
-    {
-        name: 'Ammanuel',
-        phone: '234-334-3322',
-        Location: '8989',
-        TimeIn: '10:00am',
-        TimeOut: '1:00pm'
-
-    },
-    {
-        name: 'Ammanuel',
-        phone: '234-334-3322',
-        Location: '8989',
-        TimeIn: '10:00am',
-        TimeOut: '1:00pm'
-
-    },
-    {
-        name: 'Ammanuel',
-        phone: '234-334-3322',
-        Location: '8989',
-        TimeIn: '10:00am',
-        TimeOut: '1:00pm'
+        TimeOut: '1:00pm',
+        Date: '4/20/22'
 
     },
 ]
@@ -131,13 +118,23 @@ const Vistor = [
 
 
 
-
-
-
-
 function Output()
 {
     const classes = useStyles();
+    const [page, setPage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+    const handleChangePage = (event, newPage) =>
+    {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) =>
+    {
+        setRowsPerPage(+event.target.value);
+        setPage(0);
+    };
+
     return (
         <TableContainer className={classes.tableContainer}>
             <Table className={classes.table} stickyHeader aria-label="sticky table">
@@ -147,6 +144,7 @@ function Output()
                         <TableCell className={classes.tableHeaderCell}>Location</TableCell>
                         <TableCell className={classes.tableHeaderCell}>Time In</TableCell>
                         <TableCell className={classes.tableHeaderCell}>Time Out</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>Date</TableCell>
 
                     </TableRow>
                 </TableHead>
@@ -159,10 +157,10 @@ function Output()
 
                             <TableCell>
                                 <Grid container>
-                                    <Grid item lg={2}>
+                                    <Grid item md={3} lg={2}>
                                         <Avatar alt={row.name} src='.' className={classes.avatar} />
                                     </Grid>
-                                    <Grid item lg={8}>
+                                    <Grid item md={7} lg={10}>
                                         <Typography className={classes.name}>{row.name}</Typography>
                                         {/* <Typography color="textSecondary" variant="body2">{row.email}</Typography> */}
                                         <Typography color="textSecondary" variant="body2">{row.phone}</Typography>
@@ -180,6 +178,9 @@ function Output()
                             </TableCell>
 
                             <TableCell>{row.TimeOut}
+                            </TableCell>
+
+                            <TableCell>{row.Date}
                             </TableCell>
 
                             {/* <TableCell> */}

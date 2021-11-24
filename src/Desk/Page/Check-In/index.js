@@ -1,6 +1,8 @@
 import React from 'react'
-import { Container, CssBaseline, Paper, Grid } from '@mui/material'
+import { Container, CssBaseline, Paper, Grid, Box } from '@mui/material'
+
 import Form from './Components/Form'
+import Output from "./Components/Output"
 
 
 function CheckInPage()
@@ -9,17 +11,14 @@ function CheckInPage()
 
     return (
 
-        <Paper sx={{ mt: 10 }}>
-            <Grid container>
-                <Grid item>
-                    <Form />
-
-                </Grid>
-            </Grid>
-        </Paper>
+        <Box sx={{ height: '80vh', mt: 10, overflow: 'hidden' }}>
+            <Paper style={{ display: 'flex', height: '100%' }}>
+                <Form />
+                <Output />
+            </Paper>
+        </Box>
 
 
     )
 }
-
 export default CheckInPage

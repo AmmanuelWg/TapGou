@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { makeStyles } from '@mui/styles';
 import
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     avatar: {
-        marginRight: '6rem'
+
 
     },
     name: {
@@ -57,7 +56,7 @@ const Vistor = [
     {
         name: 'Ammanuel',
         phone: '234-334-3322',
-        Location: 'Roof top',
+        Location: 'lorem akfklj kasjf jklajklj kjas;j ja;j jedkj jiejaj kaebuc itwoc ibd ihf',
         TimeIn: '10:00am',
         TimeOut: '1:00pm'
 
@@ -143,10 +142,9 @@ function Output()
             <Table className={classes.table} stickyHeader aria-label="sticky table">
                 <TableHead>
                     <TableRow>
-                        <TableCell className={classes.tableHeaderCell}>Name</TableCell>
-                        <TableCell className={classes.tableHeaderCell}>Location</TableCell>
-                        <TableCell className={classes.tableHeaderCell}>Time In</TableCell>
-                        <TableCell className={classes.tableHeaderCell}>Time Out</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>Time</TableCell>
+                        <TableCell className={classes.tableHeaderCell}>Shift Log</TableCell>
+
 
                     </TableRow>
                 </TableHead>
@@ -159,10 +157,8 @@ function Output()
 
                             <TableCell>
                                 <Grid container>
-                                    <Grid item lg={2}>
-                                        <Avatar alt={row.name} src='.' className={classes.avatar} />
-                                    </Grid>
-                                    <Grid item lg={8}>
+
+                                    <Grid item md={7} lg={10}>
                                         <Typography className={classes.name}>{row.name}</Typography>
                                         {/* <Typography color="textSecondary" variant="body2">{row.email}</Typography> */}
                                         <Typography color="textSecondary" variant="body2">{row.phone}</Typography>
@@ -175,24 +171,6 @@ function Output()
                                 <Typography color="primary" variant="subtitle2" className={classes.name}> {row.Location}</Typography>
                                 {/* <Typography color="textSecondary" variant="body2">{row.TimeOut}</Typography> */}
                             </TableCell>
-
-                            <TableCell>{row.TimeIn}
-                            </TableCell>
-
-                            <TableCell>{row.TimeOut}
-                            </TableCell>
-
-                            {/* <TableCell> */}
-                            {/* <Typography
-                                    className={classes.status}
-                                    style={{
-                                        backgroundColor:
-                                            ((row.status === 'Active' && 'green') ||
-                                                (row.status === 'Pending' && 'blue') ||
-                                                (row.status === 'Blocked' && 'orange'))
-                                    }}
-                                >{row.status}</Typography> */}
-                            {/* </TableCell> */}
 
 
 

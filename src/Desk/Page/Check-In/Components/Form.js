@@ -1,26 +1,42 @@
 
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import { makeStyles } from '@mui/styles';
+
 
 
 
 const theme = createTheme();
 
+
+//STYLES
+
+const useStyles = makeStyles({
+
+    Radiogroup: {
+        display: 'flex',
+        width: '100%',
+        margin: '0rem 2rem',
+        justifyContent: 'space-around'
+    }
+
+
+
+})
+
 export default function Form()
 {
 
+    const classes = useStyles()
 
     return (
         <ThemeProvider theme={theme}>
@@ -37,18 +53,10 @@ export default function Form()
 
 
                     <Grid container>
-                        <Grid item xs>
-                            <FormControlLabel
-                                control={<Checkbox value="remember" color="primary" />}
-                                label="Vistor"
-                            />
-                        </Grid>
-                        <Grid item>
-                            <FormControlLabel
-                                control={<Checkbox value="remember" color="primary" />}
-                                label="Contractor"
-                            />
-                        </Grid>
+                        <RadioGroup row aria-label="gender" name="row-radio-buttons-group" className={classes.Radiogroup}>
+                            <FormControlLabel value="female" control={<Radio />} label="Vistor" />
+                            <FormControlLabel value="male" control={<Radio />} label="Contractor" />
+                        </RadioGroup>
                     </Grid>
 
 
