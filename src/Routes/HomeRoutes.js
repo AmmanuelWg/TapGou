@@ -15,12 +15,18 @@ import Works from "../Home/Works/index"
 import Nav from "../Home/Nav/index"
 import Land from "../Home/index"
 
+import LogIn from "./Access/LogIn"
+import SignUp from "./Access/SignUp"
+
+
 
 function DeskRoutes()
 {
     return (
         <Router>
             <Routes>
+                <Route path="/LogIn" element={<LogIn />} />
+                <Route path="/SignUp" element={<SignUp />} />
                 <Route path="/" element={<Nav />} >
                     <Route path="Home" element={<Land />} />
                     <Route path="Price" element={<Price />} />

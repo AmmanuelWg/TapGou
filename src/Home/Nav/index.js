@@ -14,7 +14,10 @@ import { collapseClasses } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Button from "@mui/material/Button"
 
+import { useNavigate } from "react-router-dom"
 
+
+////My FIELS
 import NavLocal from "./components/NavLocal"
 import OpenMenu from "./components/OpenMenu"
 
@@ -89,6 +92,9 @@ export default function ElevateAppBar(props)
 {
 
     const classes = useStyles()
+    const nav = useNavigate()
+
+
     return (
         <React.Fragment>
             <CssBaseline />
@@ -118,9 +124,20 @@ export default function ElevateAppBar(props)
                         </Box>
 
                         <Box className={classes.logBtn}>
-                            <Button color="inherit" variant="outlined" color="primary" sx={{ mx: 2 }} color="secondary">Login</Button>
+                            <Button color="inherit"
+                                variant="outlined"
+                                color="primary"
+                                sx={{ mx: 2 }}
+                                color="secondary"
+                                onClick={() => { nav('LogIn') }}
+                            >Login</Button>
 
-                            <Button color="secondary" variant="contained" sx={{ mx: 2 }} fullWidth>Sign Up</Button>
+                            <Button
+                                color="secondary"
+                                variant="contained"
+                                sx={{ mx: 2 }}
+                                onClick={() => { nav('SignUp') }}
+                                fullWidth>Sign Up</Button>
                         </Box>
 
 
@@ -136,15 +153,8 @@ export default function ElevateAppBar(props)
                                 <OpenMenu />
                             </IconButton>
                         </Box>
-
                     </Toolbar>
-
-
                 </AppBar>
-
-
-
-
             </ElevationScroll>
             <Toolbar />
             <Box>
