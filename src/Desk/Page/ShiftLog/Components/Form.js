@@ -49,7 +49,7 @@ export default function RowRadioButtonsGroup()
                 aria-label="maximum height"
                 placeholder="Maximum 4 rows"
                 style={{
-                    height: 200, width: '100 % ', maxWidth: 300, maxHeight: 300, marginBottom: '1rem 0rem'
+                    height: 200, width: 300, minWidth: 200, maxWidth: 400, maxHeight: 300, marginBottom: '1rem 0rem'
                 }}
             />
 

@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
     tableContainer: {
         borderRadius: 15,
         margin: '3.5rem 10px',
-        maxWidth: 950
+        maxWidth: 950,
+
     },
     tableHeaderCell: {
         fontWeight: 'bold',
@@ -151,7 +152,7 @@ function Output()
 
 
 
-                <TableBody>
+                <TableBody >
                     {Vistor.map((row) => (
                         <TableRow key={row.name}>
 

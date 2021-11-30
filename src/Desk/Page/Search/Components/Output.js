@@ -113,6 +113,42 @@ const Vistor = [
         Date: '4/20/22'
 
     },
+    {
+        name: 'Ammanuel',
+        phone: '234-334-3322',
+        Location: '8989',
+        TimeIn: '10:00am',
+        TimeOut: '1:00pm',
+        Date: '4/20/22'
+
+    },
+    {
+        name: 'Ammanuel',
+        phone: '234-334-3322',
+        Location: '8989',
+        TimeIn: '10:00am',
+        TimeOut: '1:00pm',
+        Date: '4/20/22'
+
+    },
+    {
+        name: 'Ammanuel',
+        phone: '234-334-3322',
+        Location: '8989',
+        TimeIn: '10:00am',
+        TimeOut: '1:00pm',
+        Date: '4/20/22'
+
+    },
+    {
+        name: 'Ammanuel',
+        phone: '234-334-3322',
+        Location: '8989',
+        TimeIn: '10:00am',
+        TimeOut: '1:00pm',
+        Date: '4/20/22'
+
+    },
 ]
 
 
@@ -157,7 +193,7 @@ function Output()
 
                             <TableCell>
                                 <Grid container>
-                                    <Grid item md={3} lg={2}>
+                                    <Grid item md={3} lg={2} sx={{ pr: 3 }}>
                                         <Avatar alt={row.name} src='.' className={classes.avatar} />
                                     </Grid>
                                     <Grid item md={7} lg={10}>

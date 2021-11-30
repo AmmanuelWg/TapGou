@@ -31,20 +31,18 @@ function CheckInPage()
 
         <Box sx={{ height: '80vh', mt: 10, overflow: 'hidden' }}>
             <Paper style={{ display: 'flex', height: '100%' }}>
+                <Container style={{ display: 'flex', width: '100%' }}>
 
-                <Grid container className={classes.containerScroll} >
-                    <Grid item style={{ flex: 1, margin: "0rem 2rem" }} sm={12}>
-                        <Form />
-                    </Grid>
-                    <Grid item style={{ flex: 3, width: '100%' }} sm={12}>
-                        <Output />
-                    </Grid>
-                </Grid>
+                    <Form style={{ flex: 1, margin: "0rem 2rem" }} sm={12} />
+                    <Output style={{ flex: 3, width: '100%' }} sm={12} />
+
+                </Container>
+
 
             </Paper>
 
 
-        </Box>
+        </Box >
 
 
     )

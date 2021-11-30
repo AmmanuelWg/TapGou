@@ -15,19 +15,17 @@ function DeskRoutes()
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<Layout />} >
-
+                <Route path="/Desk" element={<Layout />} >
                     <Route path="CheckInPage" element={<CheckInPage />} />
                     <Route path="SearchPage" element={<SearchPage />} />
                     <Route path="ChartPage" element={<ChartPage />} />
                     <Route path="ShiftLogPage" element={<ShiftLogPage />} />
-
                 </Route>
-
-
             </Routes>
         </Router>
     )
 }
 
 export default DeskRoutes
+
+
